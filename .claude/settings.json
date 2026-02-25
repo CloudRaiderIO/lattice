@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "SubagentStart": [
+      {
+        "type": "command",
+        "command": "bash .claude/hooks/subagent-start.sh"
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "type": "command",
+        "command": "bash .claude/hooks/tool-failure.sh"
+      }
+    ],
+    "PreCompact": [
+      {
+        "type": "command",
+        "command": "bash .claude/hooks/pre-compact.sh"
+      }
+    ]
+  }
+}

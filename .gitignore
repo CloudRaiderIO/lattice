@@ -1,0 +1,29 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if users add scripts)
+node_modules/
+package-lock.json
+
+# Python (if users add scripts)
+__pycache__/
+*.pyc
+.venv/
+
+# Private crystals -- user-specific, never committed
+.claude/crystals/private/
+
+# Session artifacts
+.claude/cache/
+.claude/tmp/
+
+# Logs
+*.log

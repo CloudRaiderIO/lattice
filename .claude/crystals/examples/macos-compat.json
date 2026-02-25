@@ -1,0 +1,19 @@
+{
+  "problem": "macOS sed -i fails without empty string argument",
+  "error_pattern": "sed: 1:.*invalid command code",
+  "context": "macOS uses BSD sed, not GNU sed. The -i flag requires an extension argument. An empty string means edit in place with no backup.",
+  "solution": "Use sed -i '' instead of sed -i on macOS. For cross-platform scripts, detect the OS first.",
+  "examples": {
+    "wrong": "sed -i 's/foo/bar/' file.txt",
+    "right_macos": "sed -i '' 's/foo/bar/' file.txt",
+    "right_crossplatform": "if [[ \"$OSTYPE\" == \"darwin\"* ]]; then sed -i '' 's/foo/bar/' file.txt; else sed -i 's/foo/bar/' file.txt; fi"
+  },
+  "platform": "darwin",
+  "related_issues": [
+    "grep -P is not available on macOS (use grep -E instead)",
+    "date command differs between GNU and BSD (use gdate from coreutils)",
+    "readlink -f does not work on macOS (use realpath or greadlink)"
+  ],
+  "verified": "2026-02-25",
+  "source": "Lattice example crystal"
+}

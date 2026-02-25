@@ -1,0 +1,19 @@
+{
+  "problem": "API authentication using OAuth2 client credentials flow",
+  "error_pattern": "unauthorized|401|invalid.*credentials|authentication.*failed",
+  "context": "Many APIs use OAuth2 client credentials flow instead of basic auth or API keys. The common mistake is sending credentials directly to the resource endpoint instead of first obtaining a token from the token endpoint.",
+  "solution": "Use the two-step OAuth2 flow: (1) POST to the token endpoint with client_id and client_secret to get an access_token, (2) Use the access_token as a Bearer token in subsequent requests.",
+  "examples": {
+    "wrong": "curl -u client_id:secret https://api.example.com/resource",
+    "right_step1": "TOKEN=$(curl -s -X POST https://api.example.com/oauth/token -u client_id:secret -d 'grant_type=client_credentials' | jq -r '.access_token')",
+    "right_step2": "curl -s https://api.example.com/resource -H 'Authorization: Bearer $TOKEN'"
+  },
+  "common_mistakes": [
+    "Sending basic auth to resource endpoints instead of token endpoint",
+    "Not URL-encoding the client_id or secret when they contain special characters",
+    "Caching tokens without checking expiry (check expires_in field)",
+    "Using the refresh_token flow when client_credentials is what you need"
+  ],
+  "verified": "2026-02-25",
+  "source": "Lattice example crystal"
+}

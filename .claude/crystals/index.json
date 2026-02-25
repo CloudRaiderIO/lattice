@@ -1,0 +1,23 @@
+{
+  "$schema": "Crystal index for Lattice. Each entry maps a problem to its crystallized solution file.",
+  "$format": {
+    "problem": "Short description of the problem this crystal solves",
+    "file": "Relative path from crystals/ to the crystal JSON file",
+    "tags": "Array of keywords for matching (used by hooks)",
+    "added": "ISO 8601 date when the crystal was created"
+  },
+  "crystals": [
+    {
+      "problem": "macOS sed -i fails without empty string argument",
+      "file": "examples/macos-compat.json",
+      "tags": ["macos", "sed", "platform"],
+      "added": "2026-02-25"
+    },
+    {
+      "problem": "API OAuth2 token flow pattern",
+      "file": "examples/api-auth-pattern.json",
+      "tags": ["api", "oauth", "auth", "token"],
+      "added": "2026-02-25"
+    }
+  ]
+}

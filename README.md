@@ -43,7 +43,7 @@ Every build has a verification step. A separate agent, with fresh context, revie
 ## Quick Start
 
 ```bash
-git clone https://github.com/cloudraider-io/lattice.git
+git clone https://github.com/CloudRaiderIO/lattice.git
 cd lattice
 bash install.sh
 ```
